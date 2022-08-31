@@ -1,0 +1,22 @@
+<h1>TodoList</h1>
+<form action="todolist" method="post">
+    {% csrf_token %}
+    <p>Enter Todo</p>
+    <input type="textarea" name="text" Placeholder="Enter the Text" >
+    <br>
+    <input type="submit" value="Enter">
+</form>
+{% if not todotext %}
+<div class="Error">
+    <h2>The List is Empty </h2>
+</div>
+{% else %}
+{% for message in todotext %}
+<div class="List_todo">
+ {{message}}.
+</div>
+<br>
+{% endfor %}
+{% endif %}
+
+
